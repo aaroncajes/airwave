@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+	<title>Force Pause</title>
+<link href="reset.css" rel="stylesheet" media="all" />
+<style>
+	body
+	{
+		background: url('images/bg.jpg') repeat-y top;
+	}
+
+	@keyframes animate
+	{
+		from 
+		{
+			transform:rotate(30deg);
+		}
+		to
+		{
+			transform:rotate(-30deg);
+		}
+	}
+	#media, #status
+	{
+		display:none;
+	}
+	#content
+	{
+		width:200px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	#content img
+	{
+		margin-left:35px;
+		animation:animate 1s infinite alternate;
+	}
+	#content h1
+	{
+		font-family:"Fira Sans", sans-serif;
+		font-size:1.5em;
+		color: #ffffff;
+		text-align:center;
+		text-shadow:0px 1px 0px #000000;
+	}
+</style>
+</head>
+<body>
+	<div id="content">
+	<img src="images/128.png" title="Force Pause" />
+	<h1>Wave to <span id="stat">play</span></h1>
+	</div>
+<audio controls id="media" loop>
+  <source src="media/pirate.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<input type="text" id="status" value="0" />
+
+
+<script>
+window.onuserproximity = function(event)
+{
+	var userProx = event.near;
+	var media = document.getElementById('media');
+	var status = document.getElementById('status');
+	var stat = document.getElementById('stat');
+	if(userProx == true)
+	{
+		if(status.value == "0")
+		{
+			status.value = 1;
+			stat.innerHTML = "pause";
+			media.play();
+		}
+		else if(status.value == "1")
+		{
+			status.value = 0;
+			stat.innerHTML = "play";
+			media.pause();
+		}
+	}
+}
+</script>
+</body>
+</html>

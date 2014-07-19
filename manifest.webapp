@@ -1,0 +1,15 @@
+{
+  "version" : "0.1",
+  "name": "Air Wave",
+  "description": "A pause/play app powered by your wave.",
+  "launch_path": "/index.html",
+  "icons": {
+    "60": "/images/60.png",
+    "128": "/images/128.png"
+  },
+  "developer": {
+    "name": "Aaron Cajes",
+    "url": "http://www.aaroncajes.com"
+  },
+  "default_locale": "en"
+}
